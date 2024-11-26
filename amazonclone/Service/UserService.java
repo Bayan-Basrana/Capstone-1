@@ -39,7 +39,7 @@ public int getRewardPoints (String userId){
 public int useRewardPoints (String userId, int pointToUse){
         for (User u:users){
             if (u.getUserId().equalsIgnoreCase(userId)){
-                if (u.getRewardPoints()<pointToUse){
+                if (u.getRewardPoints()<=pointToUse){
                     return 1;
                 }u.setRewardPoints(getRewardPoints(userId)-pointToUse);
                 double discount = pointToUse*0.1  ;
