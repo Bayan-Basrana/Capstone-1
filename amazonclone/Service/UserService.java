@@ -93,6 +93,9 @@ return 1;
         u.setBalance(u.getBalance()-product.getPriceByproductId(productId));
         int point= (int) (product.getPriceByproductId(productId) /10);
         u.setRewardPoints(u.getRewardPoints()+ point);
+        if(u.getPurchaseHistory()==null){
+            u.setPurchaseHistory(new ArrayList<>());
+        u.getPurchaseHistory().add(productId);}
         return 4;
     }
 }return 5;
@@ -131,11 +134,14 @@ public int returnProduct (String userId , String productId){
                 if(!productService.getProductID(productId)){
                     return 1;
                 }
+                if(!u.getPurchaseHistory().contains(productId)){
+                    return 2;
+                }
                 merchantStock.setStock(productId);
                 u.setBalance(u.getBalance()+productService.getPriceByproductId(productId));
-                return 2;
+                return 3;
             }
-        }return 3;
+        }return 4;
 
 }
 
