@@ -127,8 +127,13 @@ public ResponseEntity returnProduct (@PathVariable String userId ,@PathVariable 
         return ResponseEntity.status(400).body(new ApiResponse("productId not found"));
     }
     if (result==2){
+        return ResponseEntity.status(400).body(new ApiResponse("not allow, because product isn't in PurchaseHistory"));
+    }
+    if (result==3){
         return ResponseEntity.status(200).body(new ApiResponse("product return successfully"));
-    }return ResponseEntity.status(400).body(new ApiResponse("userId not found"));
+    }
+
+    return ResponseEntity.status(400).body(new ApiResponse("userId not found"));
 
 }
 
