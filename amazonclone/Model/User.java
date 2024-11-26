@@ -30,5 +30,6 @@ public class User {
     private double balance;
     @PositiveOrZero(message = "rewardPoints must be Positive Or Zero ")
     private int rewardPoints=0;
+        private ArrayList<String> PurchaseHistory =new ArrayList<>();
  private ArrayList<Product> wishlist =new ArrayList<>();
 }
