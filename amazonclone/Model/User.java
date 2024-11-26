@@ -17,7 +17,7 @@ public class User {
     private String username ;
     @NotEmpty(message = "password cannot be empty")
     @Size(min = 7, message = "password must be more than 6")
-//    @Pattern(regexp = "^[a-zA-Z]\\d{6}$",message = " password must have characters and digits only")
+    @Pattern(regexp = "^[A-Za-z0-9]+$",message = " password must have characters and digits only")
     private String password;
     @Email(message = "enter a valid email")
     @NotEmpty(message = "email cannot be empty")
